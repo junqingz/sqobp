@@ -1,0 +1,16 @@
+applications:
+- path: target/JavaHelloWorldApp.war
+  memory: 1024M
+  instances: 1
+  domain: mybluemix.net
+  name: sqobp
+  host: sqobp
+  disk_quota: 1024M
+  services:
+  - availability-monitoring-auto
+  env:
+    IBM_JVM_LICENSE: L-PMAA-A3Z8P2
+    IBM_LIBERTY_LICENSE: L-SWIS-A99U5C
+    JBP_CONFIG_LIBERTY: 'app_archive: {features: [jsp-2.3, servlet-3.1, ssl-1.0, jndi-1.0,
+      localConnector-1.0, samlWeb-2.0, distributedMap-1.0, appSecurity-2.0, el-3.0]}'
+  buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack.git
